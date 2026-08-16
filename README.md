@@ -1,59 +1,61 @@
 # Prismbound
 
-A tiny turn-based spirit-taming RPG built for **js13kGames 2026** around the theme **Unicorns and Rainbows**.
+A tiny turn-based spirit-taming RPG made for **js13kGames 2026** and the **Unicorns and Rainbows** theme.
 
-You play a unicorn, tame elemental spirits, evolve them into unicorn forms, hunt down six Prism Echoes, master all 12 forms, break the Prism Seal, and deal with the Spectrum Warden. Because apparently 13 KiB was plenty of room for all that.
+Tame elemental spirits, evolve them into unicorn forms, collect six Prism Echoes, master all 12 forms, break the Prism Seal, and deal with the Spectrum Warden. Apparently 13 KiB was enough room for an RPG. Sensible decisions were made elsewhere.
 
 ## Controls
 
 - **WASD / Arrow keys** — move
 - **Enter / Space** — interact / confirm
-- **1–4** — choose battle move
+- **1–4** — battle moves
 - **S** — Shift / cancel Shift
-- **H** — Prism / Harmonize action
-- **R** — run / leave battle result
+- **H** — Prism / Harmonize
+- **R** — run / continue from battle results
 - **Esc** — menu / save / back
-- **?** — how-to-play screen
+- **?** — help
 - **M** — mute from the menu
 
-Mouse/touch also works for the menus and battle UI.
+Mouse/touch works for menus and the battle UI too.
 
 ## Run it
 
-Open `index.html` for the readable source build, or `dist/index.html` for the packed single-file build.
+`index.html` is the readable game build. No framework, no mystery launcher, no 900 MB `node_modules` folder committed for emotional support.
 
-## Build the submission ZIP
+## Make the release ZIP
 
-### Windows
+Windows:
 
 ```text
 PACK_RELEASE.bat
 ```
 
-### Linux / macOS
+Linux/macOS:
 
 ```text
 sh PACK_RELEASE.sh
 ```
 
-The packager installs the pinned Terser/Roadroller tools when npm is available, builds the single-file release, checks the js13k 13 KiB limit, and writes:
+The packer uses the pinned Terser + Roadroller versions in `tools/` and writes:
 
 ```text
 dist/index.html
 dist/Prismbound.zip
 ```
 
-The readable files in `src/` are the actual game source. `dist/` is just the result of making them small enough to fit through a keyhole.
+`dist/` is deliberately ignored by Git. Build the submission locally instead of committing generated sludge.
 
-## Repository layout
+For the smallest/reproducible release, use Python 3, Node/npm, and the Python `zopfli` package. The scripts will install the pinned npm tools when needed.
+
+## What's actually in here
 
 ```text
 index.html              readable entry point
 src/                    game source
-dist/index.html         current packed playable build
-tools/pack_release.py   release packager
-tools/package*.json     pinned compression tools
-PACK_RELEASE.*          one-command pack scripts
+PACK_RELEASE.bat        Windows release builder
+PACK_RELEASE.sh         Linux/macOS release builder
+tools/pack_release.py   13 KiB packer + size check
+tools/package*.json     pinned Terser/Roadroller versions
 ```
 
-No framework, no asset folder the size of a small moon, and no mysterious build service required.
+That's it. The repo is the source and the packer, not a landfill of screenshots, test dumps, old builds, and files named `final_FINAL_reallyfinal2.zip`.

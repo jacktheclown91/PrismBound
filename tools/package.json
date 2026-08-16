@@ -1,0 +1,10 @@
+{
+  "name": "prismbound-release-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Release-only compression toolchain for Prismbound. Not shipped in the game ZIP. Run `npm ci` here, then build with PACK_RELEASE. The readable game source in ../src is authoritative; these tools only transform the generated release.",
+  "dependencies": {
+    "terser": "5.50.0",
+    "roadroller": "2.1.0"
+  }
+}

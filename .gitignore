@@ -1,0 +1,11 @@
+# Rebuilt locally by PACK_RELEASE.
+tools/node_modules/
+dist/
+
+# Python leftovers.
+__pycache__/
+*.pyc
+
+# OS cruft.
+.DS_Store
+Thumbs.db
